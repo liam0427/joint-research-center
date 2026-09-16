@@ -13,6 +13,9 @@ function setLanguage(language) {
   document.querySelectorAll('[data-zh][data-en]').forEach((element) => {
     element.textContent = element.dataset[next];
   });
+  document.querySelectorAll('[data-alt-zh][data-alt-en]').forEach((image) => {
+    image.alt = next === 'zh' ? image.dataset.altZh : image.dataset.altEn;
+  });
   langButton.textContent = next === 'zh' ? 'EN' : '中文';
   langButton.setAttribute('aria-label', next === 'zh' ? 'Switch to English' : '切换至中文');
   document.title = next === 'zh'
