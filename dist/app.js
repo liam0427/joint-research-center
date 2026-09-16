@@ -5,6 +5,7 @@ const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 const filterButtons = document.querySelectorAll('[data-filter]');
 const newsCards = document.querySelectorAll('[data-content-type]');
+const languageStorageKey = 'jrc-language-v2';
 
 function setLanguage(language) {
   const next = language === 'en' ? 'en' : 'zh';
@@ -17,7 +18,7 @@ function setLanguage(language) {
   document.title = next === 'zh'
     ? '社会经济系统区域联合研究中心'
     : 'Joint Research Center for Regional Socio-Economic Systems';
-  localStorage.setItem('jrc-language', next);
+  localStorage.setItem(languageStorageKey, next);
 }
 
 langButton.addEventListener('click', () => {
@@ -62,4 +63,4 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
-setLanguage(localStorage.getItem('jrc-language') || 'zh');
+setLanguage(localStorage.getItem(languageStorageKey) || 'en');
